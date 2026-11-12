@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090b0a">
+  <meta name="description" content="SHYNGO DIGITAL — разработка современных сайтов для бизнеса по всему Казахстану.">
+  <title>SHYNGO DIGITAL — сайты для бизнеса</title>
+  <style>
+    :root{
+      --bg:#090b0a;--panel:#111512;--panel2:#151b17;--line:#273129;
+      --text:#f3f6f1;--muted:#9ca89e;--lime:#c7ff55;--lime2:#a9e83d;
+      --danger:#ff8d8d;--radius:22px;--max:1160px;
+      --shadow:0 24px 80px rgba(0,0,0,.35)
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 80% 0%,rgba(199,255,85,.08),transparent 34%),radial-gradient(ellipse at 0% 45%,rgba(90,130,90,.08),transparent 30%)}
+    a{color:inherit;text-decoration:none}
+    button,input,select,textarea{font:inherit}
+    button{cursor:pointer}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+    .topline{height:3px;background:linear-gradient(90deg,var(--lime),transparent 70%)}
+    header{position:sticky;top:0;z-index:20;background:rgba(9,11,10,.82);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.07)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:.11em;font-size:15px}
+    .brand-mark{width:34px;height:34px;border-radius:11px;background:var(--lime);color:#10150a;display:grid;place-items:center;font-weight:1000;font-size:19px;box-shadow:0 0 28px rgba(199,255,85,.2)}
+    .brand small{display:block;font-size:9px;letter-spacing:.25em;color:var(--muted);font-weight:700;margin-top:-3px}
+    .navlinks{display:flex;align-items:center;gap:26px;color:#c1cbc2;font-size:13px}
+    .navlinks a:hover{color:var(--lime)}
+    .navright{display:flex;align-items:center;gap:10px}
+    .lang{border:1px solid var(--line);background:transparent;color:var(--text);border-radius:999px;padding:9px 12px;font-size:12px}
+    .lang span{color:var(--lime)}
+    .btn{border:0;border-radius:999px;padding:13px 19px;font-weight:800;font-size:13px;display:inline-flex;align-items:center;justify-content:center;gap:9px;transition:.2s transform,.2s background,.2s box-shadow}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--lime);color:#10150a;box-shadow:0 8px 28px rgba(199,255,85,.12)}
+    .btn-primary:hover{background:#d6ff83;box-shadow:0 12px 36px rgba(199,255,85,.2)}
+    .btn-ghost{background:#171d18;border:1px solid var(--line);color:var(--text)}
+    .menu-btn{display:none;background:none;border:1px solid var(--line);color:white;border-radius:12px;padding:9px 12px}
+    .hero{padding:92px 0 76px;position:relative;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:45px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--lime);font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase}
+    .dot{width:7px;height:7px;background:var(--lime);border-radius:50%;box-shadow:0 0 14px var(--lime)}
+    h1{font-size:clamp(44px,6.3vw,78px);line-height:.99;letter-spacing:-.065em;margin:22px 0 24px;max-width:760px}
+    h1 em{font-style:normal;color:var(--lime)}
+    .hero-copy{color:var(--muted);font-size:17px;max-width:560px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .hero-meta{display:flex;gap:24px;flex-wrap:wrap;margin-top:40px;color:var(--muted);font-size:12px}
+    .hero-meta strong{display:block;color:var(--text);font-size:16px;margin-bottom:2px}
+    .visual{min-height:410px;position:relative;display:grid;place-items:center}
+    .orb{position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#e6ffb2 0,#c7ff55 16%,#57752b 45%,#1a2611 70%,transparent 72%);filter:drop-shadow(0 0 65px rgba(199,255,85,.17));opacity:.9}
+    .mock-window{position:relative;width:min(100%,430px);padding:18px;border-radius:24px;border:1px solid #3b493c;background:linear-gradient(145deg,rgba(27,35,28,.94),rgba(12,16,13,.96));box-shadow:var(--shadow);transform:rotate(-4deg)}
+    .mock-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:15px;border-bottom:1px solid var(--line);font-size:10px;color:var(--muted)}
+    .mock-dots{display:flex;gap:5px}.mock-dots i{width:6px;height:6px;border-radius:50%;background:#526052}
+    .mock-content{padding:28px 12px 14px}
+    .mock-kicker{font-size:9px;color:var(--lime);letter-spacing:.2em}
+    .mock-title{font-size:36px;line-height:1.03;font-weight:900;letter-spacing:-.06em;margin:12px 0}
+    .mock-title span{color:var(--lime)}
+    .mock-bars{display:flex;gap:7px;margin-top:24px}
+    .mock-bars i{height:5px;border-radius:10px;background:#344036;flex:1}.mock-bars i:first-child{background:var(--lime);flex:1.7}
+    .float-tag{position:absolute;background:#171f18;border:1px solid #3b493c;padding:12px 15px;border-radius:14px;font-size:11px;box-shadow:var(--shadow)}
+    .float-tag b{color:var(--lime);font-size:15px;display:block}
+    .tag-one{right:-2px;top:42px}.tag-two{left:-12px;bottom:35px}
+    .section{padding:76px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:30px}
+    .kicker{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--lime);font-weight:900}
+    h2{font-size:clamp(30px,4vw,48px);line-height:1.05;letter-spacing:-.05em;margin:10px 0 0}
+    .section-desc{max-width:420px;color:var(--muted);font-size:14px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .card{background:linear-gradient(145deg,#141a15,#0e120f);border:1px solid var(--line);border-radius:var(--radius);padding:25px;min-height:215px;transition:.25s}
+    .card:hover{transform:translateY(-5px);border-color:#536b3d}
+    .card-icon{width:42px;height:42px;border:1px solid #3b493c;border-radius:13px;display:grid;place-items:center;color:var(--lime);font-size:20px;margin-bottom:25px}
+    .card h3{font-size:18px;margin:0 0 8px}.card p{font-size:13px;color:var(--muted);margin:0}
+    .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .work{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#111612}
+    .work-art{height:245px;padding:24px;position:relative;overflow:hidden;display:flex;align-items:end}
+    .work-art:before{content:"";position:absolute;width:250px;height:250px;border-radius:50%;right:-30px;top:-85px;background:radial-gradient(circle,#c7ff55 0,#667d38 30%,transparent 70%);opacity:.7}
+    .work-art.restaurant{background:linear-gradient(135deg,#293026,#111710)}
+    .work-art.business{background:linear-gradient(135deg,#1b2931,#101619)}
+    .work-art.business:before{background:radial-gradient(circle,#73c9ff 0,#325a72 32%,transparent 70%)}
+    .art-label{position:relative;font-size:clamp(24px,4vw,38px);font-weight:950;line-height:.95;letter-spacing:-.06em;max-width:70%}
+    .art-label span{color:var(--lime)}
+    .work-art.business .art-label span{color:#83d4ff}
+    .work-info{padding:19px 21px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .work-info strong{display:block;font-size:15px}.work-info small{color:var(--muted);font-size:11px}
+    .demo{border:1px solid #52613d;color:var(--lime);font-size:9px;letter-spacing:.1em;padding:6px 9px;border-radius:999px;white-space:nowrap}
+    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:stretch}
+    .price-card{background:#111612;border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;position:relative}
+    .price-card.featured{border-color:var(--lime);background:linear-gradient(160deg,rgba(199,255,85,.09),#111612 42%)}
+    .popular{position:absolute;right:18px;top:18px;color:#10150a;background:var(--lime);font-size:9px;font-weight:900;padding:6px 9px;border-radius:99px}
+    .price-name{color:var(--muted);font-size:12px;font-weight:800;letter-spacing:.12em}
+    .price{font-size:34px;font-weight:950;letter-spacing:-.06em;margin:14px 0 4px}.price small{font-size:12px;color:var(--muted);letter-spacing:0}
+    .price-sub{color:var(--muted);font-size:12px;min-height:38px}
+    .features{padding:17px 0 24px;margin:14px 0 0;border-top:1px solid var(--line);list-style:none;flex:1}
+    .features li{font-size:12px;color:#c4cec5;margin:9px 0}.features li:before{content:"✓";color:var(--lime);margin-right:9px}
+    .price-card .btn{width:100%}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;counter-reset:step}
+    .step{padding:21px;border-top:1px solid #465244;background:linear-gradient(180deg,rgba(255,255,255,.025),transparent);counter-increment:step}
+    .step:before{content:"0" counter(step);color:var(--lime);font-size:11px;font-weight:900;letter-spacing:.15em}
+    .step h3{font-size:16px;margin:22px 0 7px}.step p{color:var(--muted);font-size:12px;margin:0}
+    .contact-box{display:grid;grid-template-columns:.85fr 1.15fr;gap:35px;background:linear-gradient(135deg,#171f18,#101411);border:1px solid #344034;border-radius:28px;padding:34px}
+    .contact-copy h2{font-size:clamp(32px,4vw,48px)}
+    .contact-copy p{color:var(--muted);font-size:14px;max-width:360px}
+    .contact-note{margin-top:25px;color:#829082;font-size:11px}
+    form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}
+    label{font-size:11px;color:#c3cec4}
+    input,select,textarea{width:100%;background:#0b100c;border:1px solid #344034;color:var(--text);border-radius:12px;padding:13px 14px;outline:none;font-size:13px}
+    input:focus,select:focus,textarea:focus{border-color:var(--lime);box-shadow:0 0 0 3px rgba(199,255,85,.08)}
+    textarea{min-height:94px;resize:vertical}
+    select option{background:#111612}
+    .form-bottom{grid-column:1/-1;display:flex;align-items:center;gap:13px;flex-wrap:wrap;margin-top:4px}
+    .fineprint{font-size:10px;color:#879287;max-width:230px}
+    .notice{display:none;grid-column:1/-1;padding:14px;border:1px solid #647b42;background:rgba(199,255,85,.07);border-radius:12px;color:#e7f5d1;font-size:12px;white-space:pre-wrap}
+    .notice.show{display:block}
+    .socials{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+    .socials a{border:1px solid var(--line);padding:9px 12px;border-radius:99px;color:#d0d8d1;font-size:11px}
+    .socials a:hover{border-color:var(--lime);color:var(--lime)}
+    footer{padding:28px 0 40px;color:#879287;font-size:11px}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:15px;border-top:1px solid var(--line);padding-top:22px}
+    .admin-link{background:none;border:0;color:#748074;text-decoration:underline;text-underline-offset:3px;font-size:10px}
+    .admin-link:hover{color:var(--lime)}
+    .modal{display:none;position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.78);backdrop-filter:blur(10px);padding:20px;overflow:auto}
+    .modal.open{display:block}
+    .panel{max-width:980px;margin:4vh auto;background:#0e130f;border:1px solid #465344;border-radius:22px;padding:24px;box-shadow:var(--shadow)}
+    .panel-head{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:18px}
+    .panel-head h2{font-size:25px;margin:0}
+    .close{border:1px solid var(--line);background:#151b17;color:white;border-radius:10px;padding:8px 12px}
+    .warning{border:1px solid #7a6236;background:rgba(255,191,77,.08);color:#f1d5a3;padding:13px;border-radius:12px;font-size:12px;margin-bottom:18px}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+    .stat{background:#151b17;border:1px solid var(--line);border-radius:14px;padding:16px}
+    .stat small{display:block;color:var(--muted);font-size:10px}.stat b{font-size:25px}
+    .empty{border:1px dashed #3a493b;border-radius:14px;padding:28px;text-align:center;color:var(--muted);font-size:13px}
+    .admin-table{width:100%;border-collapse:collapse;font-size:12px}.admin-table td,.admin-table th{padding:12px;border-bottom:1px solid var(--line);text-align:left}.admin-table th{color:var(--muted);font-weight:600}
+    .reveal{animation:rise .7s both}@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:850px){
+      .navlinks{gap:14px}.hero-grid{gap:15px}.hero{padding-top:65px}.visual{min-height:330px}.orb{width:240px;height:240px}
+      .cards,.pricing{grid-template-columns:1fr 1fr}.contact-box{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:640px){
+      .wrap{width:min(var(--max),calc(100% - 28px))}.nav{height:66px}.menu-btn{display:block}
+      .navlinks{display:none;position:absolute;left:14px;right:14px;top:70px;background:#111612;border:1px solid var(--line);border-radius:16px;padding:16px;flex-direction:column;align-items:stretch}
+      .navlinks.open{display:flex}.navlinks a{padding:8px}
+      .navright>.btn{display:none}.hero{padding:54px 0 45px}.hero-grid{grid-template-columns:1fr}.hero-copy{font-size:15px}
+      .visual{min-height:280px;margin-top:8px}.mock-window{width:88%}.mock-title{font-size:29px}.tag-one{right:0;top:20px}.tag-two{left:0;bottom:12px}
+      .section{padding:55px 0}.section-head{display:block}.section-desc{margin-top:12px}
+      .cards,.work-grid,.pricing{grid-template-columns:1fr}.card{min-height:unset}.work-art{height:205px}
+      .steps{grid-template-columns:1fr 1fr;gap:8px}.step{padding:16px 12px}
+      .contact-box{padding:22px 16px;gap:22px}form{grid-template-columns:1fr}.field.full,.form-bottom,.notice{grid-column:1}
+      .form-bottom{align-items:flex-start}.form-bottom .btn{width:100%}
+      .footer-inner{align-items:flex-start;flex-direction:column}.stats{grid-template-columns:1fr 1fr}
+      .admin-table{font-size:10px}.admin-table td,.admin-table th{padding:8px 5px}
+    }
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <div class="topline"></div>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="SHYNGO DIGITAL">
+        <span class="brand-mark">S</span><span>SHYNGO<small>DIGITAL STUDIO</small></span>
+      </a>
+      <nav class="navlinks" id="navlinks">
+        <a href="#services" data-i="navServices">Услуги</a>
+        <a href="#work" data-i="navWork">Работы</a>
+        <a href="#pricing" data-i="navPricing">Цены</a>
+        <a href="#process" data-i="navProcess">Процесс</a>
+        <a href="#contact" data-i="navContact">Контакты</a>
+      </nav>
+      <div class="navright">
+        <button class="lang" id="langBtn" type="button" aria-label="Change language">RU <span>/ KZ</span></button>
+        <a class="btn btn-primary" href="#contact" data-i="navCta">Обсудить проект ↗</a>
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Открыть меню">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <div class="eyebrow"><i class="dot"></i><span data-i="heroEyebrow">ВЕБ-СТУДИЯ • КАЗАХСТАН</span></div>
+          <h1 data-html="heroTitle">Сайты, которые<br><em>двигают бизнес.</em></h1>
+          <p class="hero-copy" data-i="heroCopy">Создаём современные сайты, которые помогают бизнесу выглядеть убедительно, получать обращения и расти. Работаем по всему Казахстану.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact" data-i="heroCta">Рассчитать проект ↗</a>
+            <a class="btn btn-ghost" href="#work" data-i="heroSecondary">Смотреть работы</a>
+          </div>
+          <div class="hero-meta">
+            <div><strong>01</strong><span data-i="metaOne">Персональный подход</span></div>
+            <div><strong>02</strong><span data-i="metaTwo">Адаптация под телефон</span></div>
+            <div><strong>03</strong><span data-i="metaThree">Весь Казахстан</span></div>
+          </div>
+        </div>
+        <div class="visual reveal" aria-label="Website design preview">
+          <div class="orb"></div>
+          <div class="mock-window">
+            <div class="mock-head"><span>SHYNGO DIGITAL / WEB EXPERIENCE</span><span class="mock-dots"><i></i><i></i><i></i></span></div>
+            <div class="mock-content">
+              <div class="mock-kicker">DESIGN · DEVELOPMENT · GROWTH</div>
+              <div class="mock-title">MAKE YOUR<br><span>NEXT MOVE.</span></div>
+              <div style="font-size:10px;color:#9ca89e;max-width:210px" data-i="mockCaption">Цифровой образ, который работает на ваш бизнес.</div>
+              <div class="mock-bars"><i></i><i></i><i></i></div>
+            </div>
+          </div>
+          <div class="float-tag tag-one"><b>100%</b><span data-i="tagOne">Адаптивный дизайн</span></div>
+          <div class="float-tag tag-two"><b>24/7</b><span data-i="tagTwo">Ваш сайт онлайн</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker" data-i="servicesKicker">ЧТО МЫ ДЕЛАЕМ</div><h2 data-i="servicesTitle">Инструменты для<br>роста вашего бизнеса.</h2></div>
+          <p class="section-desc" data-i="servicesDesc">От первого впечатления до заявки от клиента — продумываем весь путь посетителя.</p>
+        </div>
+        <div class="cards">
+          <article class="card"><div class="card-icon">⌘</div><h3 data-i="service1Title">Сайты-визитки</h3><p data-i="service1Copy">Чётко рассказывают о компании, услугах и помогают быстро связаться с вами.</p></article>
+          <article class="card"><div class="card-icon">▦</div><h3 data-i="service2Title">Сайты для бизнеса</h3><p data-i="service2Copy">Структура, преимущества, услуги и формы заявок для привлечения клиентов.</p></article>
+          <article class="card"><div class="card-icon">✳</div><h3 data-i="service3Title">Landing page</h3><p data-i="service3Copy">Одностраничные сайты под конкретную услугу, продукт или рекламную кампанию.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker" data-i="workKicker">ИЗБРАННЫЕ КОНЦЕПТЫ</div><h2 data-i="workTitle">Дизайн с характером.</h2></div>
+          <p class="section-desc" data-i="workDesc">Ниже — демонстрационные концепты для показа подхода к дизайну. Это не заявленные клиентские проекты.</p>
+        </div>
+        <div class="work-grid">
+          <article class="work">
+            <div class="work-art restaurant"><div class="art-label">SHANYRAQ<br><span>RESTAURANT</span></div></div>
+            <div class="work-info"><div><strong>SHANYRAQ</strong><small data-i="work1Type">Концепт сайта ресторана</small></div><span class="demo" data-i="demoLabel">ДЕМО-КОНЦЕПТ</span></div>
+          </article>
+          <article class="work">
+            <div class="work-art business"><div class="art-label">BUSINESS<br><span>LANDING</span></div></div>
+            <div class="work-info"><div><strong>BUSINESS LANDING</strong><small data-i="work2Type">Концепт сайта компании</small></div><span class="demo" data-i="demoLabel">ДЕМО-КОНЦЕПТ</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker" data-i="pricingKicker">ПОНЯТНЫЕ ПАКЕТЫ</div><h2 data-i="pricingTitle">Выберите свой старт.</h2></div>
+          <p class="section-desc" data-i="pricingDesc">Ориентировочная стоимость. Итог зависит от объёма страниц, функциональности и материалов.</p>
+        </div>
+        <div class="pricing">
+          <article class="price-card">
+            <div class="price-name">START</div><div class="price">45 000 <small>₸</small></div><div class="price-sub" data-i="startSub">Для первого уверенного присутствия онлайн.</div>
+            <ul class="features"><li data-i="startF1">Одностраничный сайт</li><li data-i="startF2">Адаптация под смартфоны</li><li data-i="startF3">Форма обращения</li><li data-i="startF4">Базовая SEO-структура</li></ul>
+            <button class="btn btn-ghost choose-plan" data-plan="START" data-i="choose">Выбрать пакет</button>
+          </article>
+          <article class="price-card featured">
+            <span class="popular" data-i="popular">ПОПУЛЯРНЫЙ</span><div class="price-name">BUSINESS</div><div class="price">75 000 <small>₸</small></div><div class="price-sub" data-i="businessSub">Для компании, которой важно доверие клиентов.</div>
+            <ul class="features"><li data-i="businessF1">Многофункциональный сайт</li><li data-i="businessF2">До 5 основных разделов</li><li data-i="businessF3">Формы и кнопки связи</li><li data-i="businessF4">Базовая SEO-оптимизация</li></ul>
+            <button class="btn btn-primary choose-plan" data-plan="BUSINESS" data-i="choose">Выбрать пакет</button>
+          </article>
+          <article class="price-card">
+            <div class="price-name">PREMIUM</div><div class="price">120 000 <small>₸</small></div><div class="price-sub" data-i="premiumSub">Для более сложной подачи бренда и услуг.</div>
+            <ul class="features"><li data-i="premiumF1">Индивидуальный дизайн</li><li data-i="premiumF2">Расширенная структура</li><li data-i="premiumF3">Продуманные анимации</li><li data-i="premiumF4">Дополнительные функции по ТЗ</li></ul>
+            <button class="btn btn-ghost choose-plan" data-plan="PREMIUM" data-i="choose">Выбрать пакет</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="wrap">
+        <div class="section-head"><div><div class="kicker" data-i="processKicker">КАК МЫ РАБОТАЕМ</div><h2 data-i="processTitle">Просто. Прозрачно. По делу.</h2></div></div>
+        <div class="steps">
+          <div class="step"><h3 data-i="step1Title">Заявка</h3><p data-i="step1Copy">Вы рассказываете о задаче и целях сайта.</p></div>
+          <div class="step"><h3 data-i="step2Title">Обсуждение</h3><p data-i="step2Copy">Уточняем детали, сроки и согласуем стоимость.</p></div>
+          <div class="step"><h3 data-i="step3Title">Разработка</h3><p data-i="step3Copy">Создаём дизайн и собираем сайт под вашу задачу.</p></div>
+          <div class="step"><h3 data-i="step4Title">Запуск</h3><p data-i="step4Copy">Проверяем и передаём готовый проект.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="wrap">
+        <div class="contact-box">
+          <div class="contact-copy">
+            <div class="kicker" data-i="contactKicker">ЕСТЬ ИДЕЯ?</div>
+            <h2 data-i="contactTitle">Давайте создадим ваш сайт.</h2>
+            <p data-i="contactCopy">Оставьте детали проекта. Подготовим сообщение с вашей заявкой, чтобы вы могли отправить его удобным способом.</p>
+            <div class="socials">
+              <a href="#contact" aria-label="WhatsApp">WhatsApp ↗</a>
+              <a href="#contact" aria-label="Telegram">Telegram ↗</a>
+              <a href="#contact" aria-label="Instagram">Instagram ↗</a>
+            </div>
+            <div class="contact-note" data-i="contactNote">Ссылки на мессенджеры добавим после получения ваших реальных контактов.</div>
+          </div>
+          <form id="orderForm">
+            <div class="field"><label for="name" data-i="labelName">Ваше имя *</label><input id="name" name="name" required maxlength="80" placeholder="Имя"></div>
+            <div class="field"><label for="city" data-i="labelCity">Город *</label><input id="city" name="city" required maxlength="80" placeholder="Алматы"></div>
+            <div class="field"><label for="contactValue" data-i="labelContact">Телефон или ник *</label><input id="contactValue" name="contact" required maxlength="100" placeholder="+7 ... / @username"></div>
+            <div class="field"><label for="channel" data-i="labelChannel">Как связаться?</label><select id="channel" name="channel"><option value="WhatsApp">WhatsApp</option><option value="Telegram">Telegram</option><option value="Instagram">Instagram</option></select></div>
+            <div class="field"><label for="siteType" data-i="labelType">Какой сайт нужен?</label><select id="siteType" name="type"><option value="Landing page">Landing page</option><option value="Сайт-визитка">Сайт-визитка</option><option value="Сайт для бизнеса">Сайт для бизнеса</option><option value="Другое">Другое</option></select></div>
+            <div class="field"><label for="budget" data-i="labelBudget">Бюджет</label><select id="budget" name="budget"><option value="До 50 000 ₸">До 50 000 ₸</option><option value="50 000–100 000 ₸">50 000–100 000 ₸</option><option value="100 000 ₸+">100 000 ₸+</option><option value="Нужно обсудить">Нужно обсудить</option></select></div>
+            <div class="field full"><label for="details" data-i="labelDetails">Кратко о проекте</label><textarea id="details" name="details" maxlength="1200" placeholder="Чем занимается ваш бизнес и какой сайт вы хотите?"></textarea></div>
+            <div class="notice" id="formNotice" role="status" aria-live="polite"></div>
+            <div class="form-bottom"><button class="btn btn-primary" type="submit" data-i="submit">Подготовить заявку ↗</button><span class="fineprint" data-i="formFine">Сейчас форма не отправляет данные на сервер. После подключения backend заявки будут поступать в личную панель.</span></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div>© <span id="year"></span> SHYNGO DIGITAL · <span data-i="footerTag">Создаём цифровое присутствие.</span></div>
+      <button class="admin-link" id="openPanel" type="button" data-i="panelLink">Предпросмотр панели управления</button>
+    </div>
+  </footer>
+
+  <div class="modal" id="panelModal" role="dialog" aria-modal="true" aria-labelledby="panelTitle">
+    <div class="panel">
+      <div class="panel-head"><h2 id="panelTitle">SHYNGO CONTROL</h2><button class="close" id="closePanel" type="button">✕</button></div>
+      <div class="warning" data-i="panelWarning">Это только визуальный макет панели. Он не защищён авторизацией, не получает и не хранит реальные заявки. Не используйте его как закрытую админ-панель до подключения серверной авторизации и базы данных.</div>
+      <div class="stats">
+        <div class="stat"><small data-i="statRequests">Заявки</small><b>0</b></div>
+        <div class="stat"><small data-i="statActive">В работе</small><b>0</b></div>
+        <div class="stat"><small data-i="statDone">Завершено</small><b>0</b></div>
+      </div>
+      <div class="empty" data-i="panelEmpty">Здесь будет список заявок клиентов после подключения базы данных.</div>
+      <table class="admin-table" style="margin-top:15px"><thead><tr><th data-i="thClient">Клиент</th><th data-i="thProject">Проект</th><th data-i="thStatus">Статус</th></tr></thead><tbody><tr><td>—</td><td>—</td><td data-i="noData">Нет данных</td></tr></tbody></table>
+    </div>
+  </div>
+
+  <script>
+    const translations = {
+      ru: {
+        navServices:"Услуги",navWork:"Работы",navPricing:"Цены",navProcess:"Процесс",navContact:"Контакты",navCta:"Обсудить проект ↗",
+        heroEyebrow:"ВЕБ-СТУДИЯ • КАЗАХСТАН",heroTitle:'Сайты, которые<br><em>двигают бизнес.</em>',heroCopy:"Создаём современные сайты, которые помогают бизнесу выглядеть убедительно, получать обращения и расти. Работаем по всему Казахстану.",heroCta:"Рассчитать проект ↗",heroSecondary:"Смотреть работы",metaOne:"Персональный подход",metaTwo:"Адаптация под телефон",metaThree:"Весь Казахстан",mockCaption:"Цифровой образ, который работает на ваш бизнес.",tagOne:"Адаптивный дизайн",tagTwo:"Ваш сайт онлайн",
+        servicesKicker:"ЧТО МЫ ДЕЛАЕМ",servicesTitle:"Инструменты для<br>роста вашего бизнеса.",servicesDesc:"От первого впечатления до заявки от клиента — продумываем весь путь посетителя.",
+        service1Title:"Сайты-визитки",service1Copy:"Чётко рассказывают о компании, услугах и помогают быстро связаться с вами.",service2Title:"Сайты для бизнеса",service2Copy:"Структура, преимущества, услуги и формы заявок для привлечения клиентов.",service3Title:"Landing page",service3Copy:"Одностраничные сайты под конкретную услугу, продукт или рекламную кампанию.",
+        workKicker:"ИЗБРАННЫЕ КОНЦЕПТЫ",workTitle:"Дизайн с характером.",workDesc:"Ниже — демонстрационные концепты для показа подхода к дизайну. Это не заявленные клиентские проекты.",work1Type:"Концепт сайта ресторана",work2Type:"Концепт сайта компании",demoLabel:"ДЕМО-КОНЦЕПТ",
+        pricingKicker:"ПОНЯТНЫЕ ПАКЕТЫ",pricingTitle:"Выберите свой старт.",pricingDesc:"Ориентировочная стоимость. Итог зависит от объёма страниц, функциональности и материалов.",startSub:"Для первого уверенного присутствия онлайн.",startF1:"Одностраничный сайт",startF2:"Адаптация под смартфоны",startF3:"Форма обращения",startF4:"Базовая SEO-структура",businessSub:"Для компании, которой важно доверие клиентов.",businessF1:"Многофункциональный сайт",businessF2:"До 5 основных разделов",businessF3:"Формы и кнопки связи",businessF4:"Базовая SEO-оптимизация",premiumSub:"Для более сложной подачи бренда и услуг.",premiumF1:"Индивидуальный дизайн",premiumF2:"Расширенная структура",premiumF3:"Продуманные анимации",premiumF4:"Дополнительные функции по ТЗ",choose:"Выбрать пакет",popular:"ПОПУЛЯРНЫЙ",
+        processKicker:"КАК МЫ РАБОТАЕМ",processTitle:"Просто. Прозрачно. По делу.",step1Title:"Заявка",step1Copy:"Вы рассказываете о задаче и целях сайта.",step2Title:"Обсуждение",step2Copy:"Уточняем детали, сроки и согласуем стоимость.",step3Title:"Разработка",step3Copy:"Создаём дизайн и собираем сайт под вашу задачу.",step4Title:"Запуск",step4Copy:"Проверяем и передаём готовый проект.",
+        contactKicker:"ЕСТЬ ИДЕЯ?",contactTitle:"Давайте создадим ваш сайт.",contactCopy:"Оставьте детали проекта — заявка сразу поступит в нашу команду, и мы свяжемся с вами.",contactNote:"После отправки заявки мы свяжемся с вами выбранным способом.",labelName:"Ваше имя *",labelCity:"Город *",labelContact:"Телефон или ник *",labelChannel:"Как связаться?",labelType:"Какой сайт нужен?",labelBudget:"Бюджет",labelDetails:"Кратко о проекте",submit:"Отправить заявку ↗",formFine:"Ваши данные будут отправлены для связи по выбранному каналу. Не указывайте пароли и платёжные данные.",footerTag:"Создаём цифровое присутствие.",panelLink:"Предпросмотр панели управления",
+        panelWarning:"Это только визуальный макет панели. Он не защищён авторизацией, не получает и не хранит реальные заявки. Не используйте его как закрытую админ-панель до подключения серверной авторизации и базы данных.",statRequests:"Заявки",statActive:"В работе",statDone:"Завершено",panelEmpty:"Здесь будет список заявок клиентов после подключения базы данных.",thClient:"Клиент",thProject:"Проект",thStatus:"Статус",noData:"Нет данных",
+        formPrepared:"Заявка отправлена! Мы скоро свяжемся с вами.",copy:"Скопировать текст",copied:"Текст скопирован.",copyManual:"Выделите и скопируйте текст вручную:",namePlaceholder:"Имя",cityPlaceholder:"Алматы",contactPlaceholder:"+7 ... / @username",detailsPlaceholder:"Чем занимается ваш бизнес и какой сайт вы хотите?"
+      },
+      kz: {
+        navServices:"Қызметтер",navWork:"Жұмыстар",navPricing:"Бағалар",navProcess:"Жұмыс тәртібі",navContact:"Байланыс",navCta:"Жобаны талқылау ↗",
+        heroEyebrow:"ВЕБ-СТУДИЯ • ҚАЗАҚСТАН",heroTitle:'Бизнесті алға<br><em>жылжытатын сайттар.</em>',heroCopy:"Бизнесіңізді тартымды көрсетіп, клиент өтінімдерін алуға және өсуге көмектесетін заманауи сайттар жасаймыз. Қазақстанның барлық өңірімен жұмыс істейміз.",heroCta:"Жобаны есептеу ↗",heroSecondary:"Жұмыстарды көру",metaOne:"Жеке тәсіл",metaTwo:"Телефонға бейімделген",metaThree:"Бүкіл Қазақстан",mockCaption:"Бизнесіңізге жұмыс істейтін цифрлық бейне.",tagOne:"Бейімделгіш дизайн",tagTwo:"Сайтыңыз онлайн",
+        servicesKicker:"БІЗ НЕ ІСТЕЙМІЗ",servicesTitle:"Бизнесіңіздің<br>өсуіне арналған құралдар.",servicesDesc:"Алғашқы әсерден бастап клиент өтініміне дейін — келушінің бүкіл жолын ойластырамыз.",
+        service1Title:"Визитка сайттар",service1Copy:"Компания, қызметтер туралы нақты айтып, сізбен тез байланысуға көмектеседі.",service2Title:"Бизнес сайттар",service2Copy:"Клиент тартуға арналған құрылым, артықшылықтар, қызметтер және өтінім формалары.",service3Title:"Landing page",service3Copy:"Белгілі бір қызметке, өнімге немесе жарнама науқанына арналған бір беттік сайттар.",
+        workKicker:"ТАҢДАЛҒАН КОНЦЕПТТЕР",workTitle:"Өзіндік мінезі бар дизайн.",workDesc:"Төменде дизайн тәсілімізді көрсетуге арналған демонстрациялық концепттер берілген. Бұлар нақты клиенттік жобалар деп көрсетілмейді.",work1Type:"Мейрамхана сайтының концепті",work2Type:"Компания сайтының концепті",demoLabel:"ДЕМО-КОНЦЕПТ",
+        pricingKicker:"ТҮСІНІКТІ ПАКЕТТЕР",pricingTitle:"Өзіңізге сай бастаманы таңдаңыз.",pricingDesc:"Бағалар алдын ала көрсетілген. Нақты құны беттер санына, функцияларға және материалдарға байланысты.",startSub:"Интернетте алғашқы кәсіби көрініс үшін.",startF1:"Бір беттік сайт",startF2:"Смартфонға бейімдеу",startF3:"Өтінім формасы",startF4:"Негізгі SEO құрылымы",businessSub:"Клиент сенімі маңызды компанияларға.",businessF1:"Көп функциялы сайт",businessF2:"5 негізгі бөлімге дейін",businessF3:"Байланыс формалары мен батырмалары",businessF4:"Негізгі SEO оңтайландыру",premiumSub:"Бренд пен қызметтерді кеңірек таныстыру үшін.",premiumF1:"Жеке дизайн",premiumF2:"Кеңейтілген құрылым",premiumF3:"Ойластырылған анимациялар",premiumF4:"Техникалық тапсырма бойынша қосымша функциялар",choose:"Пакетті таңдау",popular:"ТАНЫМАЛ",
+        processKicker:"ҚАЛАЙ ЖҰМЫС ІСТЕЙМІЗ",processTitle:"Қарапайым. Ашық. Нақты.",step1Title:"Өтінім",step1Copy:"Міндет пен сайттың мақсатын айтасыз.",step2Title:"Талқылау",step2Copy:"Мәліметтер мен мерзімді нақтылап, бағаны келісеміз.",step3Title:"Әзірлеу",step3Copy:"Дизайн жасап, сайтыңызды құрастырамыз.",step4Title:"Іске қосу",step4Copy:"Тексеріп, дайын жобаны тапсырамыз.",
+        contactKicker:"ИДЕЯҢЫЗ БАР МА?",contactTitle:"Сайтыңызды бірге жасайық.",contactCopy:"Жоба туралы мәлімет қалдырыңыз. Өтінім мәтінін дайындаймыз, оны өзіңізге ыңғайлы арнамен жібере аласыз.",contactNote:"Өтінімнен кейін сіз таңдаған байланыс арнасы арқылы хабарласамыз.",labelName:"Атыңыз *",labelCity:"Қала *",labelContact:"Телефон немесе ник *",labelChannel:"Қалай байланысамыз?",labelType:"Қандай сайт керек?",labelBudget:"Бюджет",labelDetails:"Жоба туралы қысқаша",submit:"Өтінімді жіберу ↗",formFine:"Деректеріңіз таңдалған байланыс арнасы арқылы хабарласу үшін жіберіледі. Құпиясөздер мен төлем деректерін жазбаңыз.",footerTag:"Цифрлық кеңістік жасаймыз.",panelLink:"Басқару панелінің алдын ала көрінісі",
+        panelWarning:"Бұл — панельдің тек визуалды макеті. Ол авторизациямен қорғалмаған, нақты өтінімдерді қабылдамайды және сақтамайды. Серверлік авторизация мен дерекқор қосылмайынша оны жабық басқару панелі ретінде қолданбаңыз.",statRequests:"Өтінімдер",statActive:"Жұмыста",statDone:"Аяқталды",panelEmpty:"Дерекқор қосылғаннан кейін мұнда клиент өтінімдері көрсетіледі.",thClient:"Клиент",thProject:"Жоба",thStatus:"Мәртебе",noData:"Дерек жоқ",
+        formPrepared:"Өтінім жіберілді! Жақында сізбен байланысамыз.",copy:"Мәтінді көшіру",copied:"Мәтін көшірілді.",copyManual:"Мәтінді қолмен белгілеп көшіріңіз:",namePlaceholder:"Атыңыз",cityPlaceholder:"Алматы",contactPlaceholder:"+7 ... / @username",detailsPlaceholder:"Бизнесіңіз немен айналысады және қандай сайт қажет?"
+      }
+    };
+    let currentLang = "ru";
+    const $ = (s) => document.querySelector(s);
+    function setLanguage(lang){
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-i]").forEach(el=>{
+        const key=el.dataset.i;
+        if(translations[lang][key]) el.textContent=translations[lang][key];
+      });
+      document.querySelectorAll("[data-html]").forEach(el=>{
+        const key=el.dataset.html;
+        if(translations[lang][key]) el.innerHTML=translations[lang][key];
+      });
+      $("#langBtn").innerHTML = lang==="ru" ? 'RU <span>/ KZ</span>' : 'RU <span>/ KZ</span>';
+      $("#name").placeholder=translations[lang].namePlaceholder;
+      $("#city").placeholder=translations[lang].cityPlaceholder;
+      $("#contactValue").placeholder=translations[lang].contactPlaceholder;
+      $("#details").placeholder=translations[lang].detailsPlaceholder;
+      document.title = lang==="ru" ? "SHYNGO DIGITAL — сайты для бизнеса" : "SHYNGO DIGITAL — бизнеске арналған сайттар";
+      $("#formNotice").classList.remove("show");
+    }
+    $("#langBtn").addEventListener("click",()=>setLanguage(currentLang==="ru"?"kz":"ru"));
+    $("#menuBtn").addEventListener("click",()=>$("#navlinks").classList.toggle("open"));
+    document.querySelectorAll("#navlinks a").forEach(a=>a.addEventListener("click",()=>$("#navlinks").classList.remove("open")));
+    document.querySelectorAll(".choose-plan").forEach(btn=>btn.addEventListener("click",()=>{
+      $("#siteType").value = btn.dataset.plan==="START" ? "Сайт-визитка" : btn.dataset.plan==="BUSINESS" ? "Сайт для бизнеса" : "Другое";
+      $("#budget").value = btn.dataset.plan==="START" ? "До 50 000 ₸" : btn.dataset.plan==="BUSINESS" ? "50 000–100 000 ₸" : "100 000 ₸+";
+      $("#contact").scrollIntoView({behavior:"smooth"});
+    }));
+    $("#orderForm").addEventListener("submit",async e=>{
+      e.preventDefault();
+      const form=e.currentTarget;
+      const submitButton=form.querySelector('button[type="submit"]');
+      const notice=$("#formNotice");
+      const originalText=submitButton.textContent;
+      const payload=Object.fromEntries(new FormData(form).entries());
+      submitButton.disabled=true;
+      submitButton.textContent=currentLang==="ru"?"Отправляем…":"Жіберілуде…";
+      notice.classList.remove("show");
+      try{
+        const response=await fetch("/.netlify/functions/telegram",{
+          method:"POST",
+          headers:{"Content-Type":"application/json"},
+          body:JSON.stringify({...payload,language:currentLang})
+        });
+        const result=await response.json().catch(()=>({}));
+        if(!response.ok) throw new Error(result.error||"send_failed");
+        notice.textContent=translations[currentLang].formPrepared;
+        notice.classList.add("show");
+        form.reset();
+      }catch(error){
+        console.error("SHYNGO form submission failed",error);
+        notice.textContent=currentLang==="ru"
+          ?"Не удалось отправить заявку. Попробуйте ещё раз чуть позже или свяжитесь с нами другим способом."
+          :"Өтінімді жіберу мүмкін болмады. Кейінірек қайталап көріңіз немесе басқа жолмен байланысыңыз.";
+        notice.classList.add("show");
+      }finally{
+        submitButton.disabled=false;
+        submitButton.textContent=originalText;
+        notice.scrollIntoView({behavior:"smooth",block:"nearest"});
+      }
+    });
+    $("#openPanel").addEventListener("click",()=>$("#panelModal").classList.add("open"));
+    $("#closePanel").addEventListener("click",()=>$("#panelModal").classList.remove("open"));
+    $("#panelModal").addEventListener("click",e=>{if(e.target.id==="panelModal")$("#panelModal").classList.remove("open")});
+    document.addEventListener("keydown",e=>{if(e.key==="Escape")$("#panelModal").classList.remove("open")});
+    $("#year").textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
