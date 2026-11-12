@@ -1,30 +1,30 @@
 
-const json = (statusCode, body) => ({
-  statusCode,
-  headers: {
-    "Content-Type": "application/json; charset=utf-8",
-    "Cache-Control": "no-store",
-  },
-  body: JSON.stringify(body),
-});
+const reply = (status, data) =>
+  new Response(JSON.stringify(data), {
+    status,
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "Cache-Control": "no-store",
+    },
+  });
 
 export default async (request) => {
-  if (request.httpMethod !== "POST") {
-    return json(405, { error: "method_not_allowed" });
+  if (request.method !== "POST") {
+    return reply(405, { error: "method_not_allowed" });
   }
 
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
 
   if (!token || !chatId) {
-    return json(500, { error: "service_not_configured" });
+    return reply(500, { error: "service_not_configured" });
   }
 
   let data;
   try {
-    data = JSON.parse(request.body || "{}");
+    data = await request.json();
   } catch {
-    return json(400, { error: "invalid_json" });
+    return reply(400, { error: "invalid_json" });
   }
 
   const clean = (v, max) => String(v ?? "").trim().slice(0, max);
@@ -38,7 +38,7 @@ export default async (request) => {
   const language = data.language === "kz" ? "KZ" : "RU";
 
   if (!name || !city || !contact) {
-    return json(400, { error: "required_fields_missing" });
+    return reply(400, { error: "required_fields_missing" });
   }
 
   const message = [
@@ -67,11 +67,11 @@ export default async (request) => {
     const result = await response.json();
 
     if (!response.ok || !result.ok) {
-      return json(502, { error: "telegram_delivery_failed" });
+      return reply(502, { error: "telegram_delivery_failed" });
     }
 
-    return json(200, { ok: true });
+    return reply(200, { ok: true });
   } catch {
-    return json(502, { error: "telegram_unavailable" });
+    return reply(502, { error: "telegram_unavailable" });
   }
 };
